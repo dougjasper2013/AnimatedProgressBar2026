@@ -45,11 +45,14 @@ struct ContentView: View {
             ProgressBar(progress: progress, barHeight: 25, barColor: .green)
                 .frame(height: 25)
                 .padding(.horizontal)
-                .onAppear {
-                    Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
-                        progress = Double.random(in: 0...1)
-                    }
-                }
+                //.onAppear {
+                //    Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
+                //        progress = Double.random(in: 0...1)
+                //    }
+                //}
+            
+            // Circular Progress Bar
+            CircularProgressBar(progress: progress)
         }
         .padding()
     }
