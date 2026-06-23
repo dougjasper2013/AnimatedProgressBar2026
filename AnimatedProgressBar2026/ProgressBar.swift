@@ -19,13 +19,27 @@ struct ProgressBar: View {
             ZStack(alignment: .leading) {
                 // Background
                 RoundedRectangle(cornerRadius: cornerRadius)
-                    .fill(backgroundColor)
+                    .fill(LinearGradient(
+                        colors: [.white, .gray],
+                        startPoint: .leading,
+                        endPoint: .trailing
+                                        ))
                 
                 // Foreground (Animated)
                 RoundedRectangle(cornerRadius: cornerRadius)
-                    .fill(barColor)
+                    .fill(LinearGradient(
+                        colors: [.green, .mint],
+                        startPoint: .leading,
+                        endPoint: .trailing
+                                        ))
                     .frame(width: geometry.size.width * CGFloat(progress))
                     .animation(.easeInOut(duration: 0.8), value: progress)
+                
+                // progress percentage label
+                Text("\(Int(progress * 100))%")
+                    .bold()
+                    .foregroundColor(.white)
+                    .padding(.leading, 10)
             }
         }
         .frame(height: barHeight)
