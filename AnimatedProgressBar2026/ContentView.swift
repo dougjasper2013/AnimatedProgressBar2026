@@ -41,6 +41,15 @@ struct ContentView: View {
                 }
                 .buttonStyle(.borderedProminent)
             }
+            
+            ProgressBar(progress: progress, barHeight: 25, barColor: .green)
+                .frame(height: 25)
+                .padding(.horizontal)
+                .onAppear {
+                    Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
+                        progress = Double.random(in: 0...1)
+                    }
+                }
         }
         .padding()
     }

@@ -47,5 +47,19 @@ struct ProgressBar: View {
 }
 
 #Preview {
-    ProgressBar(progress: 0.5, barHeight: 30, cornerRadius: 5, barColor: Color.green, backgroundColor: Color.gray)
+    VStack(spacing: 20) {
+        ProgressBar(progress: 0.0)
+            .frame(height: 20)
+            .padding(.horizontal)
+            
+        ProgressBar(progress: 0.5, barHeight: 25, barColor: .orange)
+            .frame(height: 25)
+            .padding(.horizontal)
+        
+        ProgressBar(progress: 1.0, barHeight: 30, barColor: .green)
+            .frame(height: 30)
+            .padding(.horizontal)
+    }
+    .padding()
+    .previewDisplayName("ProgressBar Preview")
 }
